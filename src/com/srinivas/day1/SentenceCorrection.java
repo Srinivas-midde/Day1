@@ -6,33 +6,40 @@ public class SentenceCorrection {
 		Scanner v=new Scanner(System.in);
 		System.out.println("Enter the sentence.");
 		String input=v.nextLine();
-		String[] arr=input.split(" ");
-		//System.out.println("Enter the word to be deleted.");
-		//String word=v.nextLine();
-		System.out.println("Enter position of word");
-		int pos=v.nextInt()-1;
-		
-		for(int i=pos;i<arr.length;i++)
+		String fin = "";
+		int i;
+		for(i=0;i<input.length()-1;i++)
 		{
-			arr[pos]=arr[pos+1];
+			if(input.charAt(i)==input.charAt(i+1) && input.charAt(i)==' ')
+			{
+				
+			}
+			else
+			{
+				fin+=input.charAt(i);
+			}
 		}
-		
-	//	arr[pos]="";
-		for(int i=0;i<arr.length;i++)
+		fin=fin+input.charAt(i);
+		input=fin;
+		fin="";
+		System.out.println("enter the word to be deleted");
+		String word=v.nextLine();
+		System.out.println("Enter the position of the word");
+		int position = v.nextInt();
+		int count = 0;
+		for(i=0;i<input.length();i++)
 		{
-			System.out.print(arr[i] +" ");
+			if(input.charAt(i)==' ') {
+				count++;
+				if(count == (position - 1))
+				{
+					fin = input.substring(0, i+1)+input.substring(i+2+word.length());
+				}
+			}
 		}
-		/*
-		 * 	String w="";
-		for(int i=0;i<arr.length;i++)
-		{
-			if(i!=pos)
-			w= w+ arr[i] + " ";
-		}
-		
-			System.out.print(w);
-		
-		 */
+		System.out.println(fin);
+		v.close();
+	
 	}
 
 }

@@ -29,7 +29,7 @@ public class Itax {
 		}
 		else
 		   System.out.println("enter a positive value");
-		
+		v.close();
 	}
 
 }
